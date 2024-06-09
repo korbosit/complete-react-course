@@ -10,3 +10,6 @@ import App from "./app";
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+// let div = document.getElementById("root");
+// div.appendChild(App());
