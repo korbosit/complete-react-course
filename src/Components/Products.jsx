@@ -1,7 +1,13 @@
 let productCount = 0;
+let imageUrl = require("../images/ukhilyant.png");
+// let style = {
+//     padding: "0px 20px",
+//     // fontSize: 14,
+//     "font-size": 14,
+// };
 
 function displayFormattedProductCount() {
-    return productCount > 0 ? productCount : <h1>Zero</h1>;
+    return productCount > 0 ? productCount : "Zero";
 }
 
 function Products() {
@@ -19,13 +25,22 @@ function Products() {
                         </p>
                         <div className="d-flex align-items-center justify-content-start mt-1">
                             <h6 className="font-weight-bold my-2">$120.00</h6>
-                            <button className="btn btn-primary">-</button>
-                            <span>{displayFormattedProductCount()}</span>
+                            <button
+                                className="btn btn-primary"
+                                style={{ "margin-right": 30 }}
+                            >
+                                -
+                            </button>
+                            <span
+                                style={{ padding: "0px 14px", "font-size": 13 }}
+                            >
+                                {displayFormattedProductCount()}
+                            </span>
                             <button className="btn btn-primary">+</button>
                         </div>
                     </div>
                     <img
-                        src=""
+                        src={imageUrl}
                         alt="Generic placeholder image"
                         width="200"
                         className="ml-lg-5 order-1 order-lg-2"
