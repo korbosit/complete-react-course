@@ -21,7 +21,7 @@ function Products(props) {
                     <ProductDetails
                         price={props.price}
                         isAvailable={props.isAvailable}
-                    />
+                    ></ProductDetails>
                 </div>
                 <img
                     src={props.imageUrl}
