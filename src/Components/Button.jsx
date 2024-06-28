@@ -1,10 +1,6 @@
-function btnClickEventHandler() {
-    console.log("Butoon clicked");
-}
-
 function Button(props) {
     return (
-        <button onClick={btnClickEventHandler} className="btn btn-primary">
+        <button onClick={props.eventHandler} className="btn btn-primary">
             {props.children}
         </button>
     );
