@@ -1,6 +1,10 @@
 import ProductForm from "./ProductForm";
 
-function CreateProduct() {
+function CreateProduct(props) {
+    function onCreateProduct(product) {
+        // console.log(product);
+        props.createProduct(product);
+    }
     return (
         <div className="row">
             <div
@@ -12,7 +16,7 @@ function CreateProduct() {
                 }}
             >
                 <div>
-                    <ProductForm />
+                    <ProductForm createProduct={onCreateProduct} />
                 </div>
             </div>
         </div>
