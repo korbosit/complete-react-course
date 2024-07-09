@@ -4,7 +4,7 @@ function ProductForm() {
     let [pName, updateName] = useState("");
     let [pPrice, updatePrice] = useState("");
     let [pDescription, updateDescription] = useState("");
-    let [pAvailability, updateAvailability] = useState("");
+    let [pAvailable, updateAvailability] = useState("");
     let [pImage, updateUImageUrl] = useState("");
 
     // let [userInput, updateUserInput] = useState({
@@ -53,10 +53,24 @@ function ProductForm() {
         //     pImage: event.target.value,
         // });
     }
+
+    function createProductEventHandler(event) {
+        event.preventDefault();
+        let product = {
+            pID: 1,
+            pName: pName,
+            desc: pDescription,
+            isAvailable: Boolean(pAvailable),
+            image: pImage,
+            price: Number(pPrice),
+        };
+        console.log(product);
+    }
+
     return (
-        <form className="row g-3">
+        <form className="row g-3" onSubmit={createProductEventHandler}>
             <div className="col-md-6">
-                <label for="name">Product Name</label>
+                <label htmlFor="name">Product Name</label>
                 <input
                     type="text"
                     className="form-control"
@@ -66,7 +80,7 @@ function ProductForm() {
                 />
             </div>
             <div className="col-md-6">
-                <label for="price">Product Price</label>
+                <label htmlFor="price">Product Price</label>
                 <input
                     type="number"
                     min="0.01"
@@ -79,7 +93,7 @@ function ProductForm() {
             </div>
 
             <div className="form-group">
-                <label for="description">Product Description</label>
+                <label htmlFor="description">Product Description</label>
                 <input
                     type="text"
                     className="form-control"
@@ -89,21 +103,21 @@ function ProductForm() {
                 />
             </div>
 
-            <div class="form-check form-switch">
+            <div className="form-check form-switch">
                 <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     role="switch"
                     id="isAvailable"
                     onChange={availabilityInputHandler}
                 />
-                <label class="form-check-label" for="isAvailable">
+                <label className="form-check-label" htmlFor="isAvailable">
                     Is product available in stock?
                 </label>
             </div>
 
             <div className="form-group">
-                <label for="select-image">Select product image</label>
+                <label htmlFor="select-image">Select product image</label>
                 <input
                     type="file"
                     className="form-control"

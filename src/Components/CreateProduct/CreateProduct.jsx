@@ -11,9 +11,9 @@ function CreateProduct() {
                     marginBottom: 20,
                 }}
             >
-                <form>
+                <div>
                     <ProductForm />
-                </form>
+                </div>
             </div>
         </div>
     );
