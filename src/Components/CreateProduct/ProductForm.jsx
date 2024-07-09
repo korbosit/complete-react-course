@@ -4,8 +4,8 @@ function ProductForm() {
     let [pName, updateName] = useState("");
     let [pPrice, updatePrice] = useState("");
     let [pDescription, updateDescription] = useState("");
-    let [pAvailable, updateAvailability] = useState("");
-    let [pImage, updateUImageUrl] = useState("");
+    let [pAvailable, updateAvailable] = useState(false);
+    let [pImageUrl, updateUImageUrl] = useState("");
 
     // let [userInput, updateUserInput] = useState({
     //     pName: "",
@@ -40,7 +40,7 @@ function ProductForm() {
         // });
     }
     function availabilityInputHandler(event) {
-        updateAvailability(event.target.checked);
+        updateAvailable(event.target.checked);
         // updateUserInput({
         //     ...userInput,
         //     pAvailability: event.target.value,
@@ -61,9 +61,15 @@ function ProductForm() {
             pName: pName,
             desc: pDescription,
             isAvailable: Boolean(pAvailable),
-            image: pImage,
+            image: pImageUrl,
             price: Number(pPrice),
         };
+        updateName("");
+        updatePrice("");
+        updateDescription("");
+        updateAvailable(false);
+        updateUImageUrl("");
+
         console.log(product);
     }
 
@@ -76,6 +82,7 @@ function ProductForm() {
                     className="form-control"
                     id="name"
                     placeholder="Product Name"
+                    value={pName}
                     onChange={nameInputHandler}
                 />
             </div>
@@ -88,6 +95,7 @@ function ProductForm() {
                     className="form-control"
                     id="price"
                     placeholder="Product Price"
+                    value={pPrice}
                     onChange={priceInputHandler}
                 />
             </div>
@@ -99,6 +107,7 @@ function ProductForm() {
                     className="form-control"
                     id="description"
                     placeholder="Product Description"
+                    value={pDescription}
                     onChange={descriptionInputHandler}
                 />
             </div>
@@ -109,6 +118,7 @@ function ProductForm() {
                     type="checkbox"
                     role="switch"
                     id="isAvailable"
+                    checked={pAvailable}
                     onChange={availabilityInputHandler}
                 />
                 <label className="form-check-label" htmlFor="isAvailable">
@@ -122,6 +132,7 @@ function ProductForm() {
                     type="file"
                     className="form-control"
                     id="select-image"
+                    value={pImageUrl}
                     onChange={imageInputHandler}
                 />
             </div>
